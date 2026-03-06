@@ -1,10 +1,10 @@
 class FastapiDomainMonitor < Formula
   desc "Real-time SQLModel domain diagram dashboard for FastAPI projects"
   homepage "https://github.com/ureca-corp/fastapi-domain-monitor"
-  url "https://github.com/ureca-corp/fastapi-domain-monitor/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "65f885e1915d81d5992a3d6383971a37ee0fe5f151a2e6e1d61b7ebb4efc8fcc"
+  url "https://github.com/ureca-corp/fastapi-domain-monitor/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "6b8a6840aa13e3863501efcfdd4eec0888dc181c2d473c9326d249be8ec4b84a"
   license "MIT"
-  version "0.1.1"
+  version "0.1.2"
 
   depends_on "python@3.12"
 
@@ -19,7 +19,7 @@ class FastapiDomainMonitor < Formula
   end
 
   test do
-    assert_match "0.1.1", shell_output("#{bin}/domain-monitor --version")
+    assert_match "0.1.2", shell_output("#{bin}/domain-monitor --version")
     assert_match "start", shell_output("#{bin}/domain-monitor --help")
   end
 end
