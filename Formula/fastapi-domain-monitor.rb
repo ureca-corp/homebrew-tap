@@ -11,9 +11,11 @@ class FastapiDomainMonitor < Formula
   def install
     python3 = Formula["python@3.12"].opt_bin/"python3.12"
 
-    # Homebrew의 venv.pip_install()은 --no-deps를 붙이므로 직접 호출
+    # buildpath(소스 빌드) 대신 PyPI 휠에서 직접 설치
+    # buildpath 방식은 hatchling 빌드 백엔드 누락으로 실패할 수 있음
     system python3, "-m", "venv", libexec
-    system libexec/"bin/pip", "install", "--no-cache-dir", buildpath.to_s
+    system libexec/"bin/pip", "install", "--no-cache-dir",
+           "fastapi-domain-monitor==#{version}"
 
     bin.install_symlink libexec/"bin/domain-monitor"
   end
